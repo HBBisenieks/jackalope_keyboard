@@ -1,0 +1,375 @@
+points:
+  zones:
+    matrix:
+      anchor:
+        rotate: 5
+      columns:
+        outer:
+          rows:
+            bottom:
+            home:
+            top:
+        pinky:
+          rows:
+            bottom:
+            home:
+            top:
+        ring:
+          rotate: -4
+          origin: [-12, -19]
+          stagger: 12
+          rows:
+            bottom:
+            home:
+            top:
+        middle:
+          stagger: 5
+          rows:
+            bottom:
+            home:
+            top:
+        index:
+          stagger: -6
+          rows:
+            bottom:
+            home:
+            top:
+        inner:
+          stagger: -2
+          rows:
+            bottom:
+            home:
+            top:
+        macro:
+          stagger: 15
+          rows:
+            home:
+            top:
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-7, -25]
+      columns:
+        near:
+          rows:
+            lower:
+        home:
+          stagger: -5
+          rows:
+            upper:
+            lower:
+          spread: 21.25
+          rotate: -18
+          origin: [-11.75, -9]
+        far:
+          rows:
+            upper:
+            lower:
+          spread: 21.25
+          rotate: -6
+          origin: [-9.5, -9]
+  rotate: -15
+  mirror:
+    ref: matrix_outer_home
+    distance: 295
+outlines:
+  glue:
+    one_piece_outline:
+      top:
+        left:
+          ref: matrix_ring_top
+          shift: [, 0.5 sy]
+        right:
+          ref: mirror_matrix_ring_top
+          shift: [, 0.5 sy]
+      bottom:
+        left:
+          ref: thumbfan_far_lower
+          shift: [.5 sx, 0]
+          rotate: 90
+        right:
+          ref: mirror_thumbfan_far_lower
+          shift: [0.5 sx, 0]
+          rotate: 90
+      waypoints:
+        - percent: 50
+          width: 50
+        - percent: 90
+          width: 25
+  exports:
+    one_piece_pcb:
+      main:
+        type: keys
+        side: both
+        glue: one_piece_outline
+        size: 40
+        corner: 1.5
+    one_piece_swithces:
+      main:
+        type: keys
+        side: both
+        glue: one_piece_pcb 
+        size: 14
+        bound: false
+    one_piece_outer:
+      main:
+        type: keys
+        side: both
+        glue: one_piece_outline
+        size: 18
+        corner: .5
+    one_piece_inner:
+      main:
+        type: keys
+        side: both
+        glue: one_piece_outline
+        size: 14
+    one_piece_body:
+      - +one_piece_outer
+      - -one_piece_inner
+    mounting_holes:
+      pinky_top:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-9.5, 9.5]
+        radius: 2.25
+        mirror: true 
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_top:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      macro:
+        type: circle
+        anchor:
+          ref: matrix_macro_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      thumb_near:
+        type: circle
+        anchor:
+          ref: thumbfan_home_upper
+          shift: [-12, 2]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      thumb_far:
+        type: circle
+        anchor:
+          ref: thumbfan_home_upper
+          shift: [12, 2]
+        radius: 2.25
+        mirror: true
+        operation: stack
+    screw_holes_3d:
+      outer_top:
+        type: circle
+        anchor:
+          ref: matrix_outer_top
+          shift: [-13, 13]
+        radius: 2
+        mirror: true 
+      outer_bottom:
+        type: circle
+        anchor:
+          ref: matrix_outer_bottom
+          shift: [-13, -13]
+        radius: 2
+        mirror: true
+        operation: stack
+      ring_top:
+        type: circle
+        anchor:
+          ref: matrix_ring_top
+          shift: [-13, 13]
+        radius: 2
+        mirror: true
+        operation: stack
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_bottom
+          shift: [13, -13]
+        radius: 2
+        mirror: true
+        operation: stack
+      index_top:
+        type: circle
+        anchor:
+          ref: matrix_index_top
+          shift: [9.5, 13]
+        radius: 2
+        mirror: true
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: thumbfan_near_lower
+          shift: [-13, -13]
+        radius: 2
+        mirror: true
+        operation: stack
+      thumb_far:
+        type: circle
+        anchor:
+          ref: thumbfan_far_upper
+          shift: [13, -13]
+        radius: 2
+        mirror: true
+        operation: stack
+    screw_holes:
+      $extends: outlines.exports.mounting_holes
+      pinky_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      index_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      macro:
+        radius: 1
+      thumb_near:
+        radius: 1
+      thumb_far:
+        radius: 1
+    controller_plate_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-12.5, -30]
+        size: [25, 50]
+    controller_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-10, 10]
+        size: [20, 10]
+    one_piece_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      cut_to_size:
+        type: outline 
+        name: one_piece_pcb
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: one_piece_swithces
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: screw_holes
+        operation: subtract
+    one_piece_bottom:
+      base:
+        type: outline
+        name: one_piece_pcb
+      screw_holes:
+        type: outline
+        name: screw_holes
+        operation: subtract
+    one_piece_plate_3d:
+      main:
+        type: keys
+        side: both
+        size: 45
+      cut_to_size:
+        type: outline 
+        name: one_piece_pcb
+        operation: intersect
+      switches:
+        type: outline
+        name: one_piece_swithces
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: screw_holes_3d
+        operation: subtract
+    one_piece_bottom_3d:
+      base:
+        type: outline
+        name: one_piece_pcb
+      screw_holes:
+        type: outline
+        name: screw_holes_3d
+        operation: subtract
+    intersected_outline:
+      - +one_piece_pcb
+      - -mounting_holes
+      - -controller_cutout
+    normal_middle: &middle
+      raw:
+        type: keys
+        side: middle
+        glue: one_piece_outline
+        size: 24
+      rect1:
+        type: rectangle
+        size: [25, 5]
+        anchor:
+          ref: thumbfan_home_upper
+          shift: [0, 12]
+        mirror: true
+      rect2:
+        type: rectangle
+        size: [25, 5]
+        anchor:
+          ref: thumbfan_far_upper
+          shift: [0, 12]
+        mirror: true
+      outer_bounds:
+        type: outline
+        name: one_piece_pcb
+        operation: intersect
+pcbs:
+  main:
+    outlines:
+      edge:
+        outline: intersected_outline
+        layer: Edge.Cuts
+      middle:
+        outline: normal_middle
+        layer: F.SilkS
+    footprints:
+      mcu:
+        type: promicro
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [0, -8]
+          rotate: 270
