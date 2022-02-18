@@ -104,11 +104,44 @@ outlines:
         glue: one_piece_outline
         size: 40
         corner: 1.5
+    filler:
+      - type: polygon
+        points:
+          - ref: matrix_outer_top
+            shift: [-19, 20]
+          - ref: matrix_pinky_top
+            shift: [5, 32.1]
+          - ref: matrix_ring_top
+            shift: [0, 25]
+          - ref: matrix_ring_top
+        mirror: true
+      - type: polygon
+        points:
+          - ref: matrix_pinky_bottom
+            shift: [-9.5, -20]
+          - ref: thumbfan_near_lower
+            shift: [-19, -20]
+          - ref: thumbfan_near_lower
+            shift: [0, -22.4]
+          - ref: thumbfan_near_lower
+            shift: 1
+          - ref: matrix_pinky_bottom
+            shift: [20, 0]
+        mirror: true
+    one_piece_case_plate:
+      main:
+        type: outline
+        name: one_piece_pcb
+        fillet: 1.5
+      filler:
+        type: outline
+        name: filler
+        operation: add
     one_piece_swithces:
       main:
         type: keys
         side: both
-        glue: one_piece_pcb 
+        glue: one_piece_case_plate 
         size: 14
         bound: false
     one_piece_outer:
@@ -280,7 +313,7 @@ outlines:
         size: 45
       cut_to_size:
         type: outline 
-        name: one_piece_pcb
+        name: one_piece_case_plate
         operation: intersect
       controller_cutout:
         type: outline
@@ -297,7 +330,7 @@ outlines:
     one_piece_bottom:
       base:
         type: outline
-        name: one_piece_pcb
+        name: one_piece_case_plate
       screw_holes:
         type: outline
         name: screw_holes
@@ -309,7 +342,7 @@ outlines:
         size: 45
       cut_to_size:
         type: outline 
-        name: one_piece_pcb
+        name: one_piece_case_plate
         operation: intersect
       switches:
         type: outline
@@ -322,7 +355,7 @@ outlines:
     one_piece_bottom_3d:
       base:
         type: outline
-        name: one_piece_pcb
+        name: one_piece_case_plate
       screw_holes:
         type: outline
         name: screw_holes_3d
