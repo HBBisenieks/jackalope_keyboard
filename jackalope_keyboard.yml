@@ -311,6 +311,10 @@ outlines:
         type: keys
         side: both
         size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
       cut_to_size:
         type: outline 
         name: one_piece_case_plate
@@ -340,6 +344,10 @@ outlines:
         type: keys
         side: both
         size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
       cut_to_size:
         type: outline 
         name: one_piece_case_plate
