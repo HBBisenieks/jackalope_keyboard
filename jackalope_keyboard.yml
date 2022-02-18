@@ -161,75 +161,19 @@ outlines:
       - +one_piece_outer
       - -one_piece_inner
     mounting_holes:
-      pinky_top:
-        type: circle
-        anchor:
-          ref: matrix_pinky_home
-          shift: [-9.5, 9.5]
-        radius: 2.25
-        mirror: true 
-      pinky_bottom:
-        type: circle
-        anchor:
-          ref: matrix_pinky_home
-          shift: [-9.5, -9.5]
-        radius: 2.25
-        mirror: true
-        operation: stack
-      index_top:
-        type: circle
-        anchor:
-          ref: matrix_index_home
-          shift: [9.5, 9.5]
-        radius: 2.25
-        mirror: true
-        operation: stack
-      index_bottom:
-        type: circle
-        anchor:
-          ref: matrix_index_home
-          shift: [9.5, -9.5]
-        radius: 2.25
-        mirror: true
-        operation: stack
-      macro:
-        type: circle
-        anchor:
-          ref: matrix_macro_home
-          shift: [9.5, -9.5]
-        radius: 2.25
-        mirror: true
-        operation: stack
-      thumb_near:
-        type: circle
-        anchor:
-          ref: thumbfan_home_upper
-          shift: [-12, 2]
-        radius: 2.25
-        mirror: true
-        operation: stack
-      thumb_far:
-        type: circle
-        anchor:
-          ref: thumbfan_home_upper
-          shift: [12, 2]
-        radius: 2.25
-        mirror: true
-        operation: stack
-    screw_holes_3d:
       outer_top:
         type: circle
         anchor:
           ref: matrix_outer_top
           shift: [-13, 13]
-        radius: 2
+        radius: 2.25
         mirror: true 
       outer_bottom:
         type: circle
         anchor:
           ref: matrix_outer_bottom
           shift: [-13, -13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
       ring_top:
@@ -237,7 +181,7 @@ outlines:
         anchor:
           ref: matrix_ring_top
           shift: [-13, 13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
       pinky_bottom:
@@ -245,7 +189,7 @@ outlines:
         anchor:
           ref: matrix_pinky_bottom
           shift: [13, -13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
       index_top:
@@ -253,7 +197,7 @@ outlines:
         anchor:
           ref: matrix_index_top
           shift: [9.5, 13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
       index_bottom:
@@ -261,7 +205,7 @@ outlines:
         anchor:
           ref: thumbfan_near_lower
           shift: [-13, -13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
       thumb_far:
@@ -269,22 +213,38 @@ outlines:
         anchor:
           ref: thumbfan_far_upper
           shift: [13, -13]
-        radius: 2
+        radius: 2.25
         mirror: true
         operation: stack
+    screw_holes_3d:
+      $extends: outlines.exports.mounting_holes
+      outer_top:
+        radius: 2
+      outer_bottom:
+        radius: 2
+      ring_top:
+        radius: 2
+      pinky_bottom:
+        radius: 2
+      index_top:
+        radius: 2
+      index_bottom:
+        radius: 2
+      thumb_far:
+        radius: 2
     screw_holes:
       $extends: outlines.exports.mounting_holes
-      pinky_top:
+      outer_top:
+        radius: 1
+      outer_bottom:
+        radius: 1
+      ring_top:
         radius: 1
       pinky_bottom:
         radius: 1
       index_top:
         radius: 1
       index_bottom:
-        radius: 1
-      macro:
-        radius: 1
-      thumb_near:
         radius: 1
       thumb_far:
         radius: 1
