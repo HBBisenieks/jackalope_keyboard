@@ -45,12 +45,12 @@ points:
           rows:
             home:
             top:
-    thumbfan:
+    thumb_cluster:
       anchor:
         ref: matrix_inner_bottom
         shift: [-7, -25]
       columns:
-        near:
+        inner:
           rows:
             lower:
         home:
@@ -61,7 +61,7 @@ points:
           spread: 21.25
           rotate: -18
           origin: [-11.75, -9]
-        far:
+        outer:
           rows:
             upper:
             lower:
@@ -74,7 +74,7 @@ points:
     distance: 295
 outlines:
   glue:
-    one_piece_outline:
+    jackalope_1p_outline:
       top:
         left:
           ref: matrix_ring_top
@@ -84,11 +84,11 @@ outlines:
           shift: [, 0.5 sy]
       bottom:
         left:
-          ref: thumbfan_far_lower
+          ref: thumb_cluster_outer_lower
           shift: [.5 sx, 0]
           rotate: 90
         right:
-          ref: mirror_thumbfan_far_lower
+          ref: mirror_thumb_cluster_outer_lower
           shift: [0.5 sx, 0]
           rotate: 90
       waypoints:
@@ -97,11 +97,11 @@ outlines:
         - percent: 90
           width: 25
   exports:
-    one_piece_pcb:
+    jackalope_1p_pcb:
       main:
         type: keys
         side: both
-        glue: one_piece_outline
+        glue: jackalope_1p_outline
         size: 40
         corner: 1.5
     filler:
@@ -119,47 +119,47 @@ outlines:
         points:
           - ref: matrix_pinky_bottom
             shift: [-9.5, -20]
-          - ref: thumbfan_near_lower
+          - ref: thumb_cluster_inner_lower
             shift: [-19, -20]
-          - ref: thumbfan_near_lower
+          - ref: thumb_cluster_inner_lower
             shift: [0, -22.4]
-          - ref: thumbfan_near_lower
+          - ref: thumb_cluster_inner_lower
             shift: 1
           - ref: matrix_pinky_bottom
             shift: [20, 0]
         mirror: true
-    one_piece_case_plate:
+    jackalope_1p_case_plate:
       main:
         type: outline
-        name: one_piece_pcb
+        name: jackalope_1p_pcb
         fillet: 1.5
       filler:
         type: outline
         name: filler
         operation: add
-    one_piece_swithces:
+    jackalope_1p_swithces:
       main:
         type: keys
         side: both
-        glue: one_piece_case_plate 
+        glue: jackalope_1p_case_plate 
         size: 14
         bound: false
-    one_piece_outer:
+    jackalope_1p_outer:
       main:
         type: keys
         side: both
-        glue: one_piece_outline
+        glue: jackalope_1p_outline
         size: 18
         corner: .5
-    one_piece_inner:
+    jackalope_1p_inner:
       main:
         type: keys
         side: both
-        glue: one_piece_outline
+        glue: jackalope_1p_outline
         size: 14
-    one_piece_body:
-      - +one_piece_outer
-      - -one_piece_inner
+    jackalope_1p_body:
+      - +jackalope_1p_outer
+      - -jackalope_1p_inner
     mounting_holes:
       outer_top:
         type: circle
@@ -203,15 +203,15 @@ outlines:
       index_bottom:
         type: circle
         anchor:
-          ref: thumbfan_near_lower
+          ref: thumb_cluster_inner_lower
           shift: [-13, -13]
         radius: 2.25
         mirror: true
         operation: stack
-      thumb_far:
+      thumb_outer:
         type: circle
         anchor:
-          ref: thumbfan_far_upper
+          ref: thumb_cluster_outer_upper
           shift: [13, -13]
         radius: 2.25
         mirror: true
@@ -230,7 +230,7 @@ outlines:
         radius: 2
       index_bottom:
         radius: 2
-      thumb_far:
+      thumb_outer:
         radius: 2
     screw_holes:
       $extends: outlines.exports.mounting_holes
@@ -246,7 +246,7 @@ outlines:
         radius: 1
       index_bottom:
         radius: 1
-      thumb_far:
+      thumb_outer:
         radius: 1
     controller_plate_cutout:
       main:
@@ -266,7 +266,7 @@ outlines:
             - mirror_matrix_inner_top
           shift: [-10, 10]
         size: [20, 10]
-    one_piece_plate:
+    jackalope_1p_plate:
       main:
         type: keys
         side: both
@@ -277,7 +277,7 @@ outlines:
         operation: add
       cut_to_size:
         type: outline 
-        name: one_piece_case_plate
+        name: jackalope_1p_case_plate
         operation: intersect
       controller_cutout:
         type: outline
@@ -285,21 +285,21 @@ outlines:
         operation: subtract
       switches:
         type: outline
-        name: one_piece_swithces
+        name: jackalope_1p_swithces
         operation: subtract
       screw_holes:
         type: outline
         name: screw_holes
         operation: subtract
-    one_piece_bottom:
+    jackalope_1p_bottom:
       base:
         type: outline
-        name: one_piece_case_plate
+        name: jackalope_1p_case_plate
       screw_holes:
         type: outline
         name: screw_holes
         operation: subtract
-    one_piece_plate_3d:
+    jackalope_1p_plate_3d:
       main:
         type: keys
         side: both
@@ -310,54 +310,54 @@ outlines:
         operation: add
       cut_to_size:
         type: outline 
-        name: one_piece_case_plate
+        name: jackalope_1p_case_plate
         operation: intersect
       switches:
         type: outline
-        name: one_piece_swithces
+        name: jackalope_1p_swithces
         operation: subtract
       screw_holes:
         type: outline
         name: screw_holes_3d
         operation: subtract
-    one_piece_bottom_3d:
+    jackalope_1p_bottom_3d:
       base:
         type: outline
-        name: one_piece_case_plate
+        name: jackalope_1p_case_plate
       screw_holes:
         type: outline
         name: screw_holes_3d
         operation: subtract
     intersected_outline:
-      - +one_piece_pcb
+      - +jackalope_1p_pcb
       - -mounting_holes
       - -controller_cutout
     normal_middle: &middle
       raw:
         type: keys
         side: middle
-        glue: one_piece_outline
+        glue: jackalope_1p_outline
         size: 24
       rect1:
         type: rectangle
         size: [25, 5]
         anchor:
-          ref: thumbfan_home_upper
+          ref: thumb_cluster_home_upper
           shift: [0, 12]
         mirror: true
       rect2:
         type: rectangle
         size: [25, 5]
         anchor:
-          ref: thumbfan_far_upper
+          ref: thumb_cluster_outer_upper
           shift: [0, 12]
         mirror: true
       outer_bounds:
         type: outline
-        name: one_piece_pcb
+        name: jackalope_1p_pcb
         operation: intersect
 pcbs:
-  main:
+  jackalope_unibody:
     outlines:
       edge:
         outline: intersected_outline
