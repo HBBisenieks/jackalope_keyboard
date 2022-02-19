@@ -178,7 +178,7 @@ points:
           from: =colrow
           to: =row_net
         anchor:
-          shift: [0, -5]
+          shift: [0, -9.5]
   rotate: -15
   mirror:
     ref: matrix_outer_home
