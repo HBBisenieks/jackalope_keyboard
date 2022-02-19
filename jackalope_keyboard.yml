@@ -72,6 +72,7 @@ points:
   mirror:
     ref: matrix_outer_home
     distance: 295
+
 outlines:
   glue:
     jackalope_1p_outline:
@@ -332,39 +333,13 @@ outlines:
       - +jackalope_1p_pcb
       - -mounting_holes
       - -controller_cutout
-    normal_middle: &middle
-      raw:
-        type: keys
-        side: middle
-        glue: jackalope_1p_outline
-        size: 24
-      rect1:
-        type: rectangle
-        size: [25, 5]
-        anchor:
-          ref: thumb_cluster_home_upper
-          shift: [0, 12]
-        mirror: true
-      rect2:
-        type: rectangle
-        size: [25, 5]
-        anchor:
-          ref: thumb_cluster_outer_upper
-          shift: [0, 12]
-        mirror: true
-      outer_bounds:
-        type: outline
-        name: jackalope_1p_pcb
-        operation: intersect
+
 pcbs:
   jackalope_unibody:
     outlines:
       edge:
         outline: intersected_outline
         layer: Edge.Cuts
-      middle:
-        outline: normal_middle
-        layer: F.SilkS
     footprints:
       mcu:
         type: promicro
