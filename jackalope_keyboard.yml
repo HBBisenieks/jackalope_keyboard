@@ -8,7 +8,7 @@ points:
           key:
             column_net: P1
             mirror:
-              column_net: P15
+              column_net: P21
           rows:
             bottom:
               bind: [5, 5, 0, 0]
@@ -20,7 +20,7 @@ points:
           key:
             column_net: P0
             mirror:
-              column_net: P14
+              column_net: P20
           rows:
             bottom:
               bind: [5, 5, 0, 5]
@@ -32,7 +32,7 @@ points:
           key:
             column_net: P2
             mirror:
-              column_net: P16
+              column_net: P19
           rotate: -4
           origin: [-12, -19]
           stagger: 12
@@ -47,7 +47,7 @@ points:
           key:
             column_net: P3
             mirror:
-              column_net: P10
+              column_net: P18
           stagger: 5
           rows:
             bottom:
@@ -60,7 +60,7 @@ points:
           key:
             column_net: P4
             mirror:
-              column_net: P9
+              column_net: P15
           stagger: -6
           rows:
             bottom:
@@ -73,7 +73,7 @@ points:
           key:
             column_net: P5
             mirror:
-              column_net: P8
+              column_net: P14
           stagger: -2
           rows:
             bottom:
@@ -89,7 +89,7 @@ points:
           key:
             column_net: P6
             mirror:
-              column_net: P7
+              column_net: P16
           stagger: 15
           rows:
             home:
@@ -99,19 +99,83 @@ points:
       rows:
         bottom:
           bind: 10
-          row_net: P15
+          row_net: P9
           mirror:
-            row_net: P15
+            row_net: P9
         home:
           bind: 10
-          row_net: P18
+          row_net: P8
           mirror:
-            row_net: P18
+            row_net: P8
         top:
           bind: 5
-          row_net: P19
+          row_net: P7
           mirror:
-            row_net: P19
+            row_net: P7
+    t_upper:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-7, -25]
+      columns:
+        inner:
+          key:
+            column_net: P2
+            mirror:
+              column_net: P19
+          rows:
+            upper:
+        home:
+          key:
+            column_net: P3
+            mirror:
+              column_net: P18
+          rows:
+            upper:
+          stagger: 9
+          spread: 29.25
+          rotate: -18
+        outer:
+          key:
+            column_net: P5
+            mirror:
+              column_net: P14
+          stagger: -1
+          spread: 24.25
+          rotate: -6
+      rows:
+        upper:
+          bind: 10
+          row_net: P10
+          mirror:
+            row_net: P10
+    t_lower:
+      anchor:
+        ref: t_upper_home_upper
+        shift: [0, -19]
+      columns:
+        home:
+          key:
+            column_net: P4
+            mirror:
+              column_net: P15
+          rows:
+            lower:
+        outer:
+          key:
+            column_net: P6
+            mirror:
+              column_net: P16
+          rows:
+            lower:
+          spread: 21.25
+          rotate: -6
+          origin: [-9.5, -9]
+      rows:
+        lower:
+          bind: [5, 0, 0, 0]
+          row_net: P10
+          mirror:
+            row_net: P10
     thumb_cluster:
       anchor:
         ref: matrix_inner_bottom
@@ -123,7 +187,7 @@ points:
           key:
             column_net: P4
             mirror:
-              column_net: P9
+              column_net: P15
           rows:
             lower:
               bind: [15, 15, 0, 0]
@@ -131,7 +195,7 @@ points:
           key:
             column_net: P5
             mirror:
-              column_net: P8
+              column_net: P14
           stagger: -5
           rows:
             upper:
@@ -145,7 +209,7 @@ points:
           key:
             column_net: P6
             mirror:
-              column_net: P7
+              column_net: P16
           rows:
             upper:
               bind: [5, 0, 0, 3]
@@ -157,14 +221,14 @@ points:
       rows:
         upper:
           bind: 10
-          row_net: P20
+          row_net: P10
           mirror:
-            row_net: P20
+            row_net: P10
         lower:
           bind: [5, 0, 0, 0]
-          row_net: P21
+          row_net: P16
           mirror:
-            row_net: P21
+            row_net: P16
   key:
     footprints:
       mx:
