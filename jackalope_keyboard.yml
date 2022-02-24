@@ -234,6 +234,13 @@ outlines:
         glue: jackalope_1p_outline
         size: 40
         corner: 1.5
+    jackalope_split:
+      main:
+        type: keys
+        side: left
+        glue: jackalope_1p_outline
+        size: 40
+        corner: 1.5
     filler:
       - type: polygon
         points:
@@ -258,6 +265,34 @@ outlines:
           - ref: matrix_pinky_bottom
             shift: [20, 0]
         mirror: true
+    split_filler:
+      - type: polygon
+        points:
+          - ref: matrix_outer_top
+            shift: [-19, 20]
+          - ref: matrix_pinky_top
+            shift: [5, 32.1]
+          - ref: matrix_ring_top
+            shift: [0, 25]
+          - ref: matrix_ring_top
+      - type: polygon
+        points:
+          - ref: matrix_pinky_bottom
+            shift: [-9.5, -20]
+          - ref: t_upper_inner_upper
+            shift: [-19, -20]
+          - ref: t_upper_inner_upper
+            shift: [0, -22.4]
+          - ref: t_upper_inner_upper
+            shift: 1
+          - ref: matrix_pinky_bottom
+            shift: [20, 0]
+      - type: rectangle
+        anchor:
+          ref: matrix_middle_top
+          shift: [10, -57]
+        size: [120, 77]
+        corner: 1.5
     jackalope_1p_case_plate:
       main:
         type: outline
@@ -267,12 +302,28 @@ outlines:
         type: outline
         name: filler
         operation: add
-    jackalope_1p_swithces:
+    jackalope_split_case_plate:
+      main:
+        type: outline
+        name: jackalope_split
+        fillet: 1.5
+      filler:
+        type: outline
+        name: split_filler
+        operation: add
+    jackalope_1p_switches:
       main:
         type: keys
         side: both
         glue: jackalope_1p_case_plate 
         size: 14
+        bound: false
+    jackalope_split_switches:
+      main:
+        type: keys
+        side: left
+        size: 14
+        glue: jackalope_split_case_plate
         bound: false
     mounting_holes:
       outer_top:
@@ -399,7 +450,7 @@ outlines:
         operation: subtract
       switches:
         type: outline
-        name: jackalope_1p_swithces
+        name: jackalope_1p_switches
         operation: subtract
       screw_holes:
         type: outline
@@ -428,7 +479,7 @@ outlines:
         operation: intersect
       switches:
         type: outline
-        name: jackalope_1p_swithces
+        name: jackalope_1p_switches
         operation: subtract
       screw_holes:
         type: outline
