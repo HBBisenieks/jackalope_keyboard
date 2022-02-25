@@ -488,6 +488,24 @@ outlines:
         radius: 1
       thumb_outer_top:
         radius: 1
+    split_screw_holes:
+      $extends: outlines.exports.split_mounting_holes
+      outer_top:
+        radius: 1
+      outer_bottom:
+        radius: 1
+      ring_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      index_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      thumb_outer_bottom:
+        radius: 1
+      thumb_outer_top:
+        radius: 1
     controller_plate_cutout:
       main:
         type: rectangle
@@ -497,6 +515,21 @@ outlines:
             - mirror_matrix_inner_top
           shift: [-12.5, -30]
         size: [25, 50]
+    split_controller_plate_cutout:
+      macro:
+        type: rectangle
+        anchor:
+          ref: matrix_macro_top
+          shift: [12, -30.5]
+        size: [30, 60]
+        corner: 1.5
+      thumb:
+        type: rectangle
+        anchor:
+          ref: t_upper_outer_upper
+          shift: [-24.7, 20]
+        size: [50, 20]
+        corner: 1.5
     controller_cutout:
       main:
         type: rectangle
@@ -530,6 +563,31 @@ outlines:
       screw_holes:
         type: outline
         name: 1p_screw_holes
+        operation: subtract
+    jackalope_split_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: split_filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_split_case_plate
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: split_controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: jackalope_split_switches
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: split_screw_holes
         operation: subtract
     jackalope_1p_bottom:
       base:
@@ -569,7 +627,7 @@ outlines:
         name: 1p_screw_holes_3d
         operation: subtract
     intersected_outline:
-      - +jackalope_1p_pcb
+      - +jackalope_1p_pcb_base
       - -1p_mounting_holes
       - -controller_cutout
 
