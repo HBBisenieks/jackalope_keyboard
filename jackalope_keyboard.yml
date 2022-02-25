@@ -227,14 +227,28 @@ outlines:
         - percent: 90
           width: 25
   exports:
-    jackalope_1p_pcb:
+    jackalope_1p_pcb_base:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_outline
+        size: 30
+        corner: 1.5
+    jackalope_1p_case_base:
       main:
         type: keys
         side: both
         glue: jackalope_1p_outline
         size: 40
         corner: 1.5
-    jackalope_split:
+    jackalope_split_pcb_base:
+      main:
+        type: keys
+        side: left
+        glue: jackalope_1p_outline
+        size: 30
+        corner: 1.5
+    jackalope_split_case_base:
       main:
         type: keys
         side: left
@@ -287,16 +301,10 @@ outlines:
             shift: 1
           - ref: matrix_pinky_bottom
             shift: [20, 0]
-      - type: rectangle
-        anchor:
-          ref: matrix_middle_top
-          shift: [10, -57]
-        size: [120, 77]
-        corner: 1.5
     jackalope_1p_case_plate:
       main:
         type: outline
-        name: jackalope_1p_pcb
+        name: jackalope_1p_case_base
         fillet: 1.5
       filler:
         type: outline
@@ -305,7 +313,7 @@ outlines:
     jackalope_split_case_plate:
       main:
         type: outline
-        name: jackalope_split
+        name: jackalope_split_case_base
         fillet: 1.5
       filler:
         type: outline
