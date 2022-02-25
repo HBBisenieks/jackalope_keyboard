@@ -365,11 +365,11 @@ outlines:
         radius: 2.25
         mirror: true
         operation: stack
-      index_top:
+      inner_top:
         type: circle
         anchor:
-          ref: matrix_index_top
-          shift: [9.5, 13]
+          ref: matrix_inner_top
+          shift: [9.5, 15]
         radius: 2.25
         mirror: true
         operation: stack
@@ -424,11 +424,11 @@ outlines:
           shift: [13, -13]
         radius: 2.25
         operation: stack
-      index_top:
+      inner_top:
         type: circle
         anchor:
-          ref: matrix_index_top
-          shift: [9.5, 13]
+          ref: matrix_inner_top
+          shift: [9.5, 15]
         radius: 2.25
         operation: stack
       index_bottom:
