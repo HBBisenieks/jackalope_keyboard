@@ -462,7 +462,7 @@ outlines:
         radius: 2
       pinky_bottom:
         radius: 2
-      index_top:
+      inner_top:
         radius: 2
       index_bottom:
         radius: 2
@@ -480,7 +480,7 @@ outlines:
         radius: 1
       pinky_bottom:
         radius: 1
-      index_top:
+      inner_top:
         radius: 1
       index_bottom:
         radius: 1
@@ -498,7 +498,7 @@ outlines:
         radius: 1
       pinky_bottom:
         radius: 1
-      index_top:
+      inner_top:
         radius: 1
       index_bottom:
         radius: 1
