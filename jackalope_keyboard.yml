@@ -403,6 +403,8 @@ outlines:
         mirror: true
         operation: stack
       inner_top:
+        anchor:
+          shift: [9.5, 20.5]
         mirror: true
         operation: stack
       index_bottom:
@@ -500,8 +502,8 @@ outlines:
           ref:
             - matrix_inner_top
             - mirror_matrix_inner_top
-          shift: [-10, 10]
-        size: [20, 10]
+          shift: [-10, 0]
+        size: [20, 20]
     jackalope_1p_plate:
       main:
         type: keys
@@ -609,6 +611,10 @@ outlines:
         type: outline
         name: 1p_screw_holes
         operation: subtract
+      controller_cutout:
+        type: outline
+        name: controller_cutout
+        operation: subtract
     jackalope_split_middle:
       outer:
         type: outline
@@ -627,7 +633,6 @@ outlines:
         operation: subtract
     intersected_outline:
       - +jackalope_1p_pcb_base
-      - -1p_mounting_holes
       - -controller_cutout
 
 pcbs:
