@@ -597,6 +597,18 @@ outlines:
         type: outline
         name: 1p_screw_holes_3d
         operation: subtract
+    jackalope_1p_middle:
+      outer:
+        type: outline
+        name: jackalope_1p_case_plate
+      minus_inner:
+        type: outline
+        name: jackalope_1p_pcb_base
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
     jackalope_split_middle:
       outer:
         type: outline
@@ -604,6 +616,10 @@ outlines:
       minus_inner:
         type: outline
         name: jackalope_split_pcb_base
+        operation: subtract
+      minus_controller:
+        type: outline
+        name: split_controller_plate_cutout
         operation: subtract
       screw_holes:
         type: outline
@@ -631,3 +647,15 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+
+cases:
+  split_case_bottom:
+    - name: jackalope_split_bottom
+      extrude: 2
+    - -split_screw_holes
+  split_case_top:
+    - name: jackalope_split_plate
+      extrude: 2
+    - name: jackalope_split_middle
+      extrude: 12
+    - -split_screw_holes
