@@ -38,7 +38,7 @@ points:
           stagger: 12
           rows:
             bottom:
-              bind: [5, 5, 1, 5]
+              bind: [5, 5, 12, 5]
             home:
               bind: [5, 5, 5, 5]
             top:
@@ -51,7 +51,7 @@ points:
           stagger: 5
           rows:
             bottom:
-              bind: [5, 5, 0, 5]
+              bind: [5, 5, 17, 5]
             home:
               bind: [5, 5, 5, 5]
             top:
@@ -64,7 +64,7 @@ points:
           stagger: -6
           rows:
             bottom:
-              bind: [5, 5, 0, 5]
+              bind: [5, 5, 11, 5]
             home:
               bind: [5, 5, 5, 5]
             top:
@@ -115,7 +115,7 @@ points:
     t_upper:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-7, -25]
+        shift: [-5, -25]
       columns:
         inner:
           key:
@@ -134,7 +134,7 @@ points:
             upper:
               bind: [0, 3, 0, 15]
           stagger: 9
-          spread: 29.25
+          spread: 27.25
           rotate: -18
         outer:
           key:
@@ -145,8 +145,8 @@ points:
             upper:
               bind: [0, 0, 0, 3]
           stagger: -1
-          spread: 24.25
-          rotate: -6
+          spread: 25.25
+          rotate: -8
       rows:
         upper:
           bind: 10
@@ -175,7 +175,7 @@ points:
             lower:
               bind: [5, 0, 0, 3]
           spread: 21.25
-          rotate: -6
+          rotate: -8
           origin: [-9.5, -9]
       rows:
         lower:
@@ -232,7 +232,7 @@ outlines:
         type: keys
         side: both
         glue: jackalope_1p_outline
-        size: 30
+        size: 25
         corner: 1.5
     jackalope_1p_case_base:
       main:
@@ -246,7 +246,7 @@ outlines:
         type: keys
         side: left
         glue: jackalope_1p_outline
-        size: 30
+        size: 25
         corner: 1.5
     jackalope_split_case_base:
       main:
@@ -502,7 +502,7 @@ outlines:
           ref:
             - matrix_inner_top
             - mirror_matrix_inner_top
-          shift: [-10, 0]
+          shift: [-10, 4]
         size: [20, 20]
     jackalope_1p_plate:
       main:
@@ -648,7 +648,7 @@ pcbs:
           ref:
             - matrix_inner_top
             - mirror_matrix_inner_top
-          shift: [0, -8]
+          shift: [0, -14]
           rotate: 270
         params:
           orientation: up
