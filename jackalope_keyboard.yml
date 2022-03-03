@@ -143,7 +143,7 @@ points:
               column_net: P14
           rows:
             upper:
-              bind: [0, 0, 0, 3]
+              bind: [0, 1, 0, 3]
           stagger: -1
           spread: 25.25
           rotate: -8
@@ -173,7 +173,7 @@ points:
               column_net: P16
           rows:
             lower:
-              bind: [5, 0, 0, 3]
+              bind: [5, 1, 0, 3]
           spread: 21.25
           rotate: -8
           origin: [-9.5, -9]
