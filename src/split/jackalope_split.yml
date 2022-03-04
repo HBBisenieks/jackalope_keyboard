@@ -7,8 +7,6 @@ points:
         outer:
           key:
             column_net: P1
-            mirror:
-              column_net: P21
           rows:
             bottom:
               bind: [5, 5, 0, 0]
@@ -19,8 +17,6 @@ points:
         pinky:
           key:
             column_net: P0
-            mirror:
-              column_net: P20
           rows:
             bottom:
               bind: [5, 0, 0, 5]
@@ -31,8 +27,6 @@ points:
         ring:
           key:
             column_net: P2
-            mirror:
-              column_net: P19
           rotate: -4
           origin: [-12, -19]
           stagger: 12
@@ -46,8 +40,6 @@ points:
         middle:
           key:
             column_net: P3
-            mirror:
-              column_net: P18
           stagger: 5
           rows:
             bottom:
@@ -59,8 +51,6 @@ points:
         index:
           key:
             column_net: P4
-            mirror:
-              column_net: P15
           stagger: -6
           rows:
             bottom:
@@ -72,8 +62,6 @@ points:
         inner:
           key:
             column_net: P5
-            mirror:
-              column_net: P14
           stagger: -2
           rows:
             bottom:
@@ -88,8 +76,6 @@ points:
             top:
           key:
             column_net: P6
-            mirror:
-              column_net: P16
           stagger: 15
           rows:
             home:
@@ -100,18 +86,12 @@ points:
         bottom:
           bind: 10
           row_net: P9
-          mirror:
-            row_net: P9
         home:
           bind: 10
           row_net: P8
-          mirror:
-            row_net: P8
         top:
           bind: 5
           row_net: P7
-          mirror:
-            row_net: P7
     t_upper:
       anchor:
         ref: matrix_inner_bottom
@@ -120,16 +100,12 @@ points:
         inner:
           key:
             column_net: P2
-            mirror:
-              column_net: P19
           rows:
             upper:
               bind: [15, 15, 0, 0]
         home:
           key:
             column_net: P3
-            mirror:
-              column_net: P18
           rows:
             upper:
               bind: [0, 3, 0, 15]
@@ -139,8 +115,6 @@ points:
         outer:
           key:
             column_net: P5
-            mirror:
-              column_net: P14
           rows:
             upper:
               bind: [0, 1, 0, 3]
@@ -151,8 +125,6 @@ points:
         upper:
           bind: 10
           row_net: P10
-          mirror:
-            row_net: P10
     t_lower:
       anchor:
         ref: t_upper_home_upper
@@ -161,16 +133,12 @@ points:
         home:
           key:
             column_net: P4
-            mirror:
-              column_net: P15
           rows:
             lower:
               bind: [5, 5, 0, 15]
         outer:
           key:
             column_net: P6
-            mirror:
-              column_net: P16
           rows:
             lower:
               bind: [5, 1, 0, 3]
@@ -181,8 +149,6 @@ points:
         lower:
           bind: [5, 0, 0, 0]
           row_net: P10
-          mirror:
-            row_net: P10
   key:
     footprints:
       mx:
@@ -198,19 +164,16 @@ points:
         anchor:
           shift: [0, -9.5]
   rotate: -15
-  mirror:
-    ref: matrix_outer_home
-    distance: 295
 
 outlines:
   glue:
-    jackalope_1p_outline:
+    jackalope_split_outline:
       top:
         left:
           ref: matrix_ring_top
           shift: [, 0.5 sy]
         right:
-          ref: mirror_matrix_ring_top
+          ref: matrix_macro_top
           shift: [, 0.5 sy]
       bottom:
         left:
@@ -218,7 +181,7 @@ outlines:
           shift: [.5 sx, 0]
           rotate: 90
         right:
-          ref: mirror_t_lower_outer_lower
+          ref: t_lower_outer_lower
           shift: [0.5 sx, 0]
           rotate: 90
       waypoints:
@@ -227,58 +190,20 @@ outlines:
         - percent: 90
           width: 25
   exports:
-    jackalope_1p_pcb_base:
-      main:
-        type: keys
-        side: both
-        glue: jackalope_1p_outline
-        size: 25
-        corner: 1.5
-    jackalope_1p_case_base:
-      main:
-        type: keys
-        side: both
-        glue: jackalope_1p_outline
-        size: 40
-        corner: 1.5
     jackalope_split_pcb_base:
       main:
         type: keys
         side: left
-        glue: jackalope_1p_outline
+        glue: jackalope_split_outline
         size: 25
         corner: 1.5
     jackalope_split_case_base:
       main:
         type: keys
         side: left
-        glue: jackalope_1p_outline
+        glue: jackalope_split_outline
         size: 40
         corner: 1.5
-    filler:
-      - type: polygon
-        points:
-          - ref: matrix_outer_top
-            shift: [-19, 20]
-          - ref: matrix_pinky_top
-            shift: [5, 32.1]
-          - ref: matrix_ring_top
-            shift: [0, 25]
-          - ref: matrix_ring_top
-        mirror: true
-      - type: polygon
-        points:
-          - ref: matrix_pinky_bottom
-            shift: [-9.5, -20]
-          - ref: t_upper_inner_upper
-            shift: [-19, -20]
-          - ref: t_upper_inner_upper
-            shift: [0, -22.4]
-          - ref: t_upper_inner_upper
-            shift: 1
-          - ref: matrix_pinky_bottom
-            shift: [20, 0]
-        mirror: true
     split_filler:
       - type: polygon
         points:
@@ -301,15 +226,6 @@ outlines:
             shift: 1
           - ref: matrix_pinky_bottom
             shift: [20, 0]
-    jackalope_1p_case_plate:
-      main:
-        type: outline
-        name: jackalope_1p_case_base
-        fillet: 1.5
-      filler:
-        type: outline
-        name: filler
-        operation: add
     jackalope_split_case_plate:
       main:
         type: outline
@@ -319,13 +235,6 @@ outlines:
         type: outline
         name: split_filler
         operation: add
-    jackalope_1p_switches:
-      main:
-        type: keys
-        side: both
-        glue: jackalope_1p_case_plate 
-        size: 14
-        bound: false
     jackalope_split_switches:
       main:
         type: keys
@@ -389,70 +298,6 @@ outlines:
           shift: [17, 17]
         radius: 2.25
         operation: stack
-    1p_mounting_holes:
-      $extends: outlines.exports.split_mounting_holes
-      outer_top:
-        mirror: true 
-      outer_bottom:
-        mirror: true
-        operation: stack
-      ring_top:
-        mirror: true
-        operation: stack
-      pinky_bottom:
-        mirror: true
-        operation: stack
-      inner_top:
-        anchor:
-          shift: [9.5, 20.5]
-        mirror: true
-        operation: stack
-      index_bottom:
-        mirror: true
-        operation: stack
-      thumb_outer_bottom:
-        mirror: true
-        operation: stack
-      thumb_outer_top:
-        anchor:
-          shift: [13, 13]
-        operation: stack
-    1p_screw_holes_3d:
-      $extends: outlines.exports.1p_mounting_holes
-      outer_top:
-        radius: 2
-      outer_bottom:
-        radius: 2
-      ring_top:
-        radius: 2
-      pinky_bottom:
-        radius: 2
-      inner_top:
-        radius: 2
-      index_bottom:
-        radius: 2
-      thumb_outer_bottom:
-        radius: 2
-      thumb_outer_top:
-        radius: 2
-    1p_screw_holes:
-      $extends: outlines.exports.1p_mounting_holes
-      outer_top:
-        radius: 1
-      outer_bottom:
-        radius: 1
-      ring_top:
-        radius: 1
-      pinky_bottom:
-        radius: 1
-      inner_top:
-        radius: 1
-      index_bottom:
-        radius: 1
-      thumb_outer_bottom:
-        radius: 1
-      thumb_outer_top:
-        radius: 1
     split_screw_holes:
       $extends: outlines.exports.split_mounting_holes
       outer_top:
@@ -471,15 +316,6 @@ outlines:
         radius: 1
       thumb_outer_top:
         radius: 1
-    controller_plate_cutout:
-      main:
-        type: rectangle
-        anchor:
-          ref:
-            - matrix_inner_top
-            - mirror_matrix_inner_top
-          shift: [-12.5, -30]
-        size: [25, 50]
     split_controller_plate_cutout:
       macro:
         type: rectangle
@@ -495,40 +331,6 @@ outlines:
           shift: [-24.7, 20]
         size: [50, 20]
         corner: 1.5
-    controller_cutout:
-      main:
-        type: rectangle
-        anchor:
-          ref:
-            - matrix_inner_top
-            - mirror_matrix_inner_top
-          shift: [-10, 4]
-        size: [20, 20]
-    jackalope_1p_plate:
-      main:
-        type: keys
-        side: both
-        size: 45
-      filler:
-        type: outline
-        name: filler
-        operation: add
-      cut_to_size:
-        type: outline 
-        name: jackalope_1p_case_plate
-        operation: intersect
-      controller_cutout:
-        type: outline
-        name: controller_plate_cutout
-        operation: subtract
-      switches:
-        type: outline
-        name: jackalope_1p_switches
-        operation: subtract
-      screw_holes:
-        type: outline
-        name: 1p_screw_holes
-        operation: subtract
     jackalope_split_plate:
       main:
         type: keys
@@ -554,14 +356,6 @@ outlines:
         type: outline
         name: split_screw_holes
         operation: subtract
-    jackalope_1p_bottom:
-      base:
-        type: outline
-        name: jackalope_1p_case_plate
-      screw_holes:
-        type: outline
-        name: 1p_screw_holes
-        operation: subtract
     jackalope_split_bottom:
       base:
         type: outline
@@ -569,51 +363,6 @@ outlines:
       screw_holes:
         type: outline
         name: split_screw_holes
-        operation: subtract
-    jackalope_1p_plate_3d:
-      main:
-        type: keys
-        side: both
-        size: 45
-      filler:
-        type: outline
-        name: filler
-        operation: add
-      cut_to_size:
-        type: outline 
-        name: jackalope_1p_case_plate
-        operation: intersect
-      switches:
-        type: outline
-        name: jackalope_1p_switches
-        operation: subtract
-      screw_holes:
-        type: outline
-        name: 1p_screw_holes_3d
-        operation: subtract
-    jackalope_1p_bottom_3d:
-      base:
-        type: outline
-        name: jackalope_1p_case_plate
-      screw_holes:
-        type: outline
-        name: 1p_screw_holes_3d
-        operation: subtract
-    jackalope_1p_middle:
-      outer:
-        type: outline
-        name: jackalope_1p_case_plate
-      minus_inner:
-        type: outline
-        name: jackalope_1p_pcb_base
-        operation: subtract
-      screw_holes:
-        type: outline
-        name: 1p_screw_holes
-        operation: subtract
-      controller_cutout:
-        type: outline
-        name: controller_cutout
         operation: subtract
     jackalope_split_middle:
       outer:
@@ -631,24 +380,19 @@ outlines:
         type: outline
         name: split_screw_holes
         operation: subtract
-    intersected_outline:
-      - +jackalope_1p_pcb_base
-      - -controller_cutout
 
 pcbs:
-  jackalope_unibody:
+  jackalope_split:
     outlines:
       edge:
-        outline: intersected_outline
+        outline: jackalope_split_pcb_base
         layer: Edge.Cuts
     footprints:
       mcu:
         type: promicro
         anchor:
-          ref:
-            - matrix_inner_top
-            - mirror_matrix_inner_top
-          shift: [0, -14]
+          ref: matrix_inner_top
+          shift: [30, -14]
           rotate: 270
         params:
           orientation: up
