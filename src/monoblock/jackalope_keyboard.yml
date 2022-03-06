@@ -190,6 +190,11 @@ points:
         nets:
           from: =colrow
           to: =column_net
+      choc:
+        type: choc
+        nets:
+          from: =colrow
+          to: =column_net
       diode:
         type: diode
         nets:
@@ -232,6 +237,13 @@ outlines:
         type: keys
         side: both
         glue: jackalope_1p_outline
+        size: 24.5
+        corner: 1.5
+    jackalope_1p_pcb_spacer:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_outline
         size: 25
         corner: 1.5
     jackalope_1p_case_base:
@@ -239,7 +251,7 @@ outlines:
         type: keys
         side: both
         glue: jackalope_1p_outline
-        size: 40
+        size: 35
         corner: 1.5
     filler:
       - type: polygon
@@ -270,10 +282,7 @@ outlines:
         type: outline
         name: jackalope_1p_case_base
         fillet: 1.5
-      filler:
-        type: outline
-        name: filler
-        operation: add
+
     jackalope_1p_switches:
       main:
         type: keys
@@ -286,49 +295,56 @@ outlines:
         type: circle
         anchor:
           ref: matrix_outer_top
-          shift: [-17, 17]
+          shift: [-14.5, 14.5]
         radius: 2.25
+        mirror: true 
       outer_bottom:
         type: circle
         anchor:
           ref: matrix_outer_bottom
-          shift: [-17, -17]
+          shift: [-14.5, -14.5]
         radius: 2.25
+        mirror: true 
         operation: stack
       ring_top:
         type: circle
         anchor:
           ref: matrix_ring_top
-          shift: [-17, 17]
+          shift: [-14.5, 14.5]
         radius: 2.25
+        mirror: true 
         operation: stack
       pinky_bottom:
         type: circle
         anchor:
           ref: matrix_pinky_bottom
-          shift: [17, -17]
+          shift: [14.5, -15.5]
         radius: 2.25
+        mirror: true 
         operation: stack
       inner_top:
         type: circle
         anchor:
           ref: matrix_inner_top
-          shift: [9.5, 19.5]
+          shift: [9.5, 18]
         radius: 2.25
+        mirror: true 
         operation: stack
       index_bottom:
         type: circle
         anchor:
           ref: t_upper_inner_upper
-          shift: [-17, -17]
+          shift: [-14.5, -14.5]
         radius: 2.25
+        mirror: true 
         operation: stack
       thumb_outer_bottom:
         type: circle
         anchor:
           ref: t_lower_outer_lower
-          shift: [17, -17]
+          shift: [15.5, -14.5]
         radius: 2.25
+        mirror: true 
         operation: stack
     1p_screw_holes_3d:
       $extends: outlines.exports.1p_mounting_holes
@@ -346,8 +362,6 @@ outlines:
         radius: 2
       thumb_outer_bottom:
         radius: 2
-      thumb_outer_top:
-        radius: 2
     1p_screw_holes:
       $extends: outlines.exports.1p_mounting_holes
       outer_top:
@@ -362,15 +376,120 @@ outlines:
         radius: 1
       index_bottom:
         radius: 1
-    intersected_outline:
-      - +jackalope_1p_pcb_base
-      - -controller_cutout
+      thumb_outer_bottom:
+        radius: 1
+    controller_plate_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-12.5, -30]
+        size: [25, 50]
+    controller_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-10, 4]
+        size: [20, 20]
+    jackalope_1p_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_1p_case_plate
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: jackalope_1p_switches
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+    jackalope_1p_bottom:
+      base:
+        type: outline
+        name: jackalope_1p_case_plate
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+    jackalope_1p_plate_3d:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_1p_case_plate
+        operation: intersect
+      switches:
+        type: outline
+        name: jackalope_1p_switches
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes_3d
+        operation: subtract
+    jackalope_1p_bottom_3d:
+      base:
+        type: outline
+        name: jackalope_1p_case_plate
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes_3d
+        operation: subtract
+    jackalope_1p_middle:
+      outer:
+        type: outline
+        name: jackalope_1p_case_plate
+      minus_inner:
+        type: outline
+        name: jackalope_1p_pcb_spacer
+        fillet: 1.5
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+      controller_cutout:
+        type: outline
+        name: controller_cutout
+        operation: subtract
+    1p_pcb_outline:
+      main:
+        type: outline
+        name: jackalope_1p_pcb_base
+        fillet: 1.5
+      controller_cutout:
+        type: outline
+        name: controller_cutout
+        operation: subtract
 
 pcbs:
   jackalope_unibody:
     outlines:
       edge:
-        outline: intersected_outline
+        outline: 1p_pcb_outline
         layer: Edge.Cuts
     footprints:
       mcu:
@@ -383,3 +502,12 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+      credits:
+        type: text
+        anchor:
+          ref:
+            - matrix_ring_bottom
+          shift: [0.5 kx, 0]
+        params:
+          layer: F.SilkS
+          text: "jackalope_monoblock v1.0 by @HBBisenieks"

@@ -153,6 +153,15 @@ points:
     footprints:
       mx:
         type: mx
+        params:
+          reverse: true 
+        nets:
+          from: =colrow
+          to: =column_net
+      choc:
+        type: choc
+        params:
+          reverse: true
         nets:
           from: =colrow
           to: =column_net
@@ -163,21 +172,21 @@ points:
           to: =row_net
         anchor:
           shift: [0, -9.5]
-  rotate: -15
+  rotate: -1
 
 outlines:
   glue:
     jackalope_split_outline:
       top:
         left:
-          ref: matrix_ring_top
+          ref: matrix_outer_top
           shift: [, 0.5 sy]
         right:
           ref: matrix_macro_top
           shift: [, 0.5 sy]
       bottom:
         left:
-          ref: t_lower_outer_lower
+          ref: matrix_outer_bottom
           shift: [.5 sx, 0]
           rotate: 90
         right:
@@ -195,6 +204,13 @@ outlines:
         type: keys
         side: left
         glue: jackalope_split_outline
+        size: 24.5
+        corner: 1.5
+    jackalope_split_pcb_space:
+      main:
+        type: keys
+        side: left
+        glue: jackalope_split_outline
         size: 25
         corner: 1.5
     jackalope_split_case_base:
@@ -202,7 +218,7 @@ outlines:
         type: keys
         side: left
         glue: jackalope_split_outline
-        size: 40
+        size: 35
         corner: 1.5
     split_filler:
       - type: polygon
@@ -231,10 +247,6 @@ outlines:
         type: outline
         name: jackalope_split_case_base
         fillet: 1.5
-      filler:
-        type: outline
-        name: split_filler
-        operation: add
     jackalope_split_switches:
       main:
         type: keys
@@ -247,55 +259,55 @@ outlines:
         type: circle
         anchor:
           ref: matrix_outer_top
-          shift: [-17, 17]
+          shift: [-14.5, 14.5]
         radius: 2.25
       outer_bottom:
         type: circle
         anchor:
           ref: matrix_outer_bottom
-          shift: [-17, -17]
+          shift: [-14.5, -14.5]
         radius: 2.25
         operation: stack
       ring_top:
         type: circle
         anchor:
           ref: matrix_ring_top
-          shift: [-17, 17]
+          shift: [-14.5, 14.5]
         radius: 2.25
         operation: stack
       pinky_bottom:
         type: circle
         anchor:
           ref: matrix_pinky_bottom
-          shift: [17, -17]
+          shift: [14.5, -15.5]
         radius: 2.25
         operation: stack
       inner_top:
         type: circle
         anchor:
           ref: matrix_inner_top
-          shift: [9.5, 19.5]
+          shift: [9.5, 17]
         radius: 2.25
         operation: stack
       index_bottom:
         type: circle
         anchor:
           ref: t_upper_inner_upper
-          shift: [-17, -17]
+          shift: [-14.5, -14.5]
         radius: 2.25
         operation: stack
       thumb_outer_bottom:
         type: circle
         anchor:
           ref: t_lower_outer_lower
-          shift: [17, -17]
+          shift: [15.5, -14.5]
         radius: 2.25
         operation: stack
       thumb_outer_top:
         type: circle
         anchor:
           ref: t_upper_outer_upper
-          shift: [17, 17]
+          shift: [15.5, 14.5]
         radius: 2.25
         operation: stack
     split_screw_holes:
@@ -321,14 +333,14 @@ outlines:
         type: rectangle
         anchor:
           ref: matrix_macro_top
-          shift: [12, -30.5]
+          shift: [12, -32]
         size: [30, 60]
         corner: 1.5
       thumb:
         type: rectangle
         anchor:
           ref: t_upper_outer_upper
-          shift: [-24.7, 20]
+          shift: [-25.7, 17.5]
         size: [50, 20]
         corner: 1.5
     jackalope_split_plate:
@@ -370,7 +382,8 @@ outlines:
         name: jackalope_split_case_plate
       minus_inner:
         type: outline
-        name: jackalope_split_pcb_base
+        name: jackalope_split_pcb_space
+        fillet: 1.5
         operation: subtract
       minus_controller:
         type: outline
@@ -380,22 +393,41 @@ outlines:
         type: outline
         name: split_screw_holes
         operation: subtract
+    split_pcb_outline:
+      main:
+        type: outline
+        name: jackalope_split_pcb_base
+        fillet: 1.5
 
 pcbs:
   jackalope_split:
     outlines:
       edge:
-        outline: jackalope_split_pcb_base
+        outline: split_pcb_outline
         layer: Edge.Cuts
     footprints:
       mcu:
         type: promicro
         anchor:
-          ref: matrix_inner_top
-          shift: [30, -14]
+          ref: matrix_macro_top
+          shift: [22, 0]
           rotate: 270
         params:
           orientation: up
+      trrs:
+        type: trrs
+        anchor:
+          ref: matrix_macro_home
+          shift: [33, -7]
+          rotate: 270
+        params:
+          reverse: true
+          symmetric: true 
+        nets:
+          A: VCC
+          B: VCC
+          C: GND
+          D: P21
 
 cases:
   split_case_bottom:
