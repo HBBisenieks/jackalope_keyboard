@@ -406,7 +406,15 @@ pcbs:
         outline: split_pcb_outline
         layer: Edge.Cuts
     footprints:
-      mcu:
+      mcu_l:
+        type: promicro
+        anchor:
+          ref: matrix_macro_top
+          shift: [19.5, -1.25]
+          rotate: 270
+        params:
+          orientation: up
+      mcu_r:
         type: promicro
         anchor:
           ref: matrix_macro_top
@@ -414,6 +422,7 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+          side: B 
       trrs:
         type: trrs
         anchor:
