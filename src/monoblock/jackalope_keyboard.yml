@@ -190,6 +190,11 @@ points:
         nets:
           from: =colrow
           to: =column_net
+      choc:
+        type: choc
+        nets:
+          from: =colrow
+          to: =column_net
       diode:
         type: diode
         nets:
