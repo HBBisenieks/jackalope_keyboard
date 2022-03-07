@@ -415,6 +415,10 @@ outlines:
         type: outline
         name: split_outer_screw_holes
         operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: split_inner_screw_holes
+        operation: subtract
     jackalope_split_bottom:
       base:
         type: outline
@@ -422,6 +426,43 @@ outlines:
       outer_screw_holes:
         type: outline
         name: split_outer_screw_holes
+        operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: split_inner_screw_holes
+        operation: subtract
+    jackalope_minimal_split_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: split_filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_split_pcb_space
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: split_controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: jackalope_split_switches
+        operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: split_inner_screw_holes
+        operation: subtract
+    jackalope_minimal_split_bottom:
+      base:
+        type: outline
+        name: jackalope_split_pcb_space
+      inner_screw_holes:
+        type: outline
+        name: split_inner_screw_holes
         operation: subtract
     jackalope_split_middle:
       outer:
@@ -445,6 +486,10 @@ outlines:
         type: outline
         name: jackalope_split_pcb_base
         fillet: 1.5
+      mounting_holes:
+        type: outline
+        name: split_inner_mounting_holes
+        operation: subtract
 
 pcbs:
   jackalope_split:
