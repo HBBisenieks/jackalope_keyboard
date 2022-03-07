@@ -254,80 +254,62 @@ outlines:
         size: 14
         glue: jackalope_split_case_plate
         bound: false
-    split_outer_mounting_holes:
+    split_outer_screw_holes:
       outer_top:
         type: circle
         anchor:
           ref: matrix_outer_top
           shift: [-14.5, 14.5]
-        radius: 2.25
+        radius: 1
       outer_bottom:
         type: circle
         anchor:
           ref: matrix_outer_bottom
           shift: [-14.5, -14.5]
-        radius: 2.25
+        radius: 1
         operation: stack
       ring_top:
         type: circle
         anchor:
           ref: matrix_ring_top
           shift: [-14.5, 14.5]
-        radius: 2.25
+        radius: 1
         operation: stack
       pinky_bottom:
         type: circle
         anchor:
           ref: matrix_pinky_bottom
           shift: [14.5, -15.5]
-        radius: 2.25
+        radius: 1
         operation: stack
       inner_top:
         type: circle
         anchor:
           ref: matrix_inner_top
           shift: [9.5, 17]
-        radius: 2.25
+        radius: 1
         operation: stack
       index_bottom:
         type: circle
         anchor:
           ref: t_upper_inner_upper
           shift: [-14.5, -14.5]
-        radius: 2.25
+        radius: 1
         operation: stack
       thumb_outer_bottom:
         type: circle
         anchor:
           ref: t_lower_outer_lower
           shift: [15.5, -14.5]
-        radius: 2.25
+        radius: 1
         operation: stack
       thumb_outer_top:
         type: circle
         anchor:
           ref: t_upper_outer_upper
           shift: [15.5, 14.5]
-        radius: 2.25
+        radius: 1
         operation: stack
-    split_outer_screw_holes:
-      $extends: outlines.exports.split_outer_mounting_holes
-      outer_top:
-        radius: 1
-      outer_bottom:
-        radius: 1
-      ring_top:
-        radius: 1
-      pinky_bottom:
-        radius: 1
-      inner_top:
-        radius: 1
-      index_bottom:
-        radius: 1
-      thumb_outer_bottom:
-        radius: 1
-      thumb_outer_top:
-        radius: 1
     split_inner_mounting_holes:
       pinky_top:
         type: circle
