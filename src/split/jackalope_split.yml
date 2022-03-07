@@ -119,7 +119,7 @@ points:
             upper:
               bind: [0, 1, 0, 3]
           stagger: -1
-          spread: 25.25
+          spread: 23.25
           rotate: -8
       rows:
         upper:
@@ -142,7 +142,7 @@ points:
           rows:
             lower:
               bind: [5, 1, 0, 3]
-          spread: 21.25
+          spread: 19.25
           rotate: -8
           origin: [-9.5, -9]
       rows:
@@ -340,7 +340,7 @@ outlines:
         type: rectangle
         anchor:
           ref: t_upper_outer_upper
-          shift: [-25.7, 17.5]
+          shift: [-23.7, 17.5]
         size: [50, 20]
         corner: 1.5
     jackalope_split_plate:
