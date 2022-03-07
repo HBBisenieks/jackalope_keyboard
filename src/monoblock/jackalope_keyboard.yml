@@ -143,9 +143,9 @@ points:
               column_net: P14
           rows:
             upper:
-              bind: [0, 1, 0, 3]
+              bind: [3, 1, 0, 3]
           stagger: -1
-          spread: 25.25
+          spread: 23.25
           rotate: -8
       rows:
         upper:
@@ -174,7 +174,7 @@ points:
           rows:
             lower:
               bind: [5, 1, 0, 3]
-          spread: 21.25
+          spread: 19.25
           rotate: -8
           origin: [-9.5, -9]
       rows:
@@ -502,12 +502,3 @@ pcbs:
           rotate: 270
         params:
           orientation: up
-      credits:
-        type: text
-        anchor:
-          ref:
-            - matrix_ring_bottom
-          shift: [0.5 kx, 0]
-        params:
-          layer: F.SilkS
-          text: "jackalope_monoblock v1.0 by @HBBisenieks"
