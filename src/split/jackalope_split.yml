@@ -390,6 +390,21 @@ outlines:
           shift: [-23.7, 17.5]
         size: [50, 20]
         corner: 1.5
+    split_controller_minimal_plate_cutout:
+      macro:
+        type: rectangle
+        anchor:
+          ref: matrix_macro_top
+          shift: [12, -38.25]
+        size: [30, 60]
+        corner: 1.5
+      thumb:
+        type: rectangle
+        anchor:
+          ref: t_upper_outer_upper
+          shift: [-21.16, 12.5]
+        size: [50, 20]
+        corner: 1.5
     jackalope_split_plate:
       main:
         type: keys
@@ -443,10 +458,11 @@ outlines:
       cut_to_size:
         type: outline 
         name: jackalope_split_pcb_space
+        fillet: 1.5
         operation: intersect
       controller_cutout:
         type: outline
-        name: split_controller_plate_cutout
+        name: split_controller_minimal_plate_cutout
         operation: subtract
       switches:
         type: outline
@@ -460,6 +476,7 @@ outlines:
       base:
         type: outline
         name: jackalope_split_pcb_space
+        fillet: 1.5
       inner_screw_holes:
         type: outline
         name: split_inner_screw_holes
