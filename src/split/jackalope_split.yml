@@ -254,7 +254,7 @@ outlines:
         size: 14
         glue: jackalope_split_case_plate
         bound: false
-    split_mounting_holes:
+    split_outer_mounting_holes:
       outer_top:
         type: circle
         anchor:
@@ -310,8 +310,8 @@ outlines:
           shift: [15.5, 14.5]
         radius: 2.25
         operation: stack
-    split_screw_holes:
-      $extends: outlines.exports.split_mounting_holes
+    split_outer_screw_holes:
+      $extends: outlines.exports.split_outer_mounting_holes
       outer_top:
         radius: 1
       outer_bottom:
@@ -327,6 +327,71 @@ outlines:
       thumb_outer_bottom:
         radius: 1
       thumb_outer_top:
+        radius: 1
+    split_inner_mounting_holes:
+      pinky_top:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, 5]
+        radius: 2.25
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, -9]
+        radius: 2.25
+        operation: stack
+      ring_top:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        operation: stack
+      ring_bottom:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        operation: stack
+      index_top:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        operation: stack
+      thumbs:
+        type: circle
+        anchor:
+          ref: t_lower_home_lower
+          shift: [9.5, 9.5]
+        radius: 2.25
+        operation: stack
+    split_inner_screw_holes:
+      $extends: outlines.exports.split_inner_mounting_holes
+      pinky_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      ring_top:
+        radius: 1
+      ring_bottom:
+        radius: 1
+      index_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      thumbs:
         radius: 1
     split_controller_plate_cutout:
       macro:
@@ -364,17 +429,17 @@ outlines:
         type: outline
         name: jackalope_split_switches
         operation: subtract
-      screw_holes:
+      outer_screw_holes:
         type: outline
-        name: split_screw_holes
+        name: split_outer_screw_holes
         operation: subtract
     jackalope_split_bottom:
       base:
         type: outline
         name: jackalope_split_case_plate
-      screw_holes:
+      outer_screw_holes:
         type: outline
-        name: split_screw_holes
+        name: split_outer_screw_holes
         operation: subtract
     jackalope_split_middle:
       outer:
@@ -389,9 +454,9 @@ outlines:
         type: outline
         name: split_controller_plate_cutout
         operation: subtract
-      screw_holes:
+      outer_screw_holes:
         type: outline
-        name: split_screw_holes
+        name: split_outer_screw_holes
         operation: subtract
     split_pcb_outline:
       main:
@@ -442,10 +507,10 @@ cases:
   split_case_bottom:
     - name: jackalope_split_bottom
       extrude: 2
-    - -split_screw_holes
+    - -split_outer_screw_holes
   split_case_top:
     - name: jackalope_split_plate
       extrude: 2
     - name: jackalope_split_middle
       extrude: 12
-    - -split_screw_holes
+    - -split_outer_screw_holes
