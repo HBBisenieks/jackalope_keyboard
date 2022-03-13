@@ -90,9 +90,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "jacalope_unibody_gerbers/"))
   )
 
   (net 0 "")
@@ -7350,7 +7350,7 @@
       (net 3 P9))
   )
 
-  (gr_text "Jackalope Keyboard by @HBBisenieks" (at 49.5 19 -15) (layer B.Cu)
+  (gr_text "Jackalope Keyboard v2.0 by @HBBisenieks" (at 49.5 19 -15) (layer B.Cu)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_line (start -12.713874 10.197177) (end 23.245676 16.537816) (angle 90) (layer Edge.Cuts) (width 0.15))
