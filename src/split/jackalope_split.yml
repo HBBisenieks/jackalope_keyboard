@@ -315,13 +315,13 @@ outlines:
         type: circle
         anchor:
           ref: matrix_pinky_home
-          shift: [-10, 5]
+          shift: [-10, 9.5]
         radius: 2.25
       pinky_bottom:
         type: circle
         anchor:
           ref: matrix_pinky_home
-          shift: [-10, -9]
+          shift: [-10, -9.5]
         radius: 2.25
         operation: stack
       ring_top:
@@ -546,6 +546,16 @@ pcbs:
           B: VCC
           C: GND
           D: P21
+  split_minimal_case_plate:
+    outlines:
+      edge:
+        outline: jackalope_minimal_split_plate
+        layer: Edge.Cuts
+  split_minimal_case_bottom:
+    outlines:
+      edge:
+        outline: jackalope_minimal_split_bottom
+        layer: Edge.Cuts
 
 cases:
   split_case_bottom:
@@ -558,3 +568,9 @@ cases:
     - name: jackalope_split_middle
       extrude: 12
     - -split_outer_screw_holes
+  split_case_minimal_bottom_3d:
+    - name: jackalope_minimal_split_bottom
+      extrude: 2
+  split_case_minimal_plate_3d:
+    - name: jackalope_minimal_split_plate
+      extrude: 2
