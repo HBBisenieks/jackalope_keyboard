@@ -477,6 +477,10 @@ outlines:
         type: outline
         name: 1p_screw_holes
         operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
+        operation: subtract
     jackalope_1p_bottom:
       base:
         type: outline
@@ -484,6 +488,10 @@ outlines:
       screw_holes:
         type: outline
         name: 1p_screw_holes
+        operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
         operation: subtract
     jackalope_1p_minimal_plate:
       main:
