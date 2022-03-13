@@ -346,22 +346,6 @@ outlines:
         radius: 2.25
         mirror: true 
         operation: stack
-    1p_screw_holes_3d:
-      $extends: outlines.exports.1p_mounting_holes
-      outer_top:
-        radius: 2
-      outer_bottom:
-        radius: 2
-      ring_top:
-        radius: 2
-      pinky_bottom:
-        radius: 2
-      inner_top:
-        radius: 2
-      index_bottom:
-        radius: 2
-      thumb_outer_bottom:
-        radius: 2
     1p_screw_holes:
       $extends: outlines.exports.1p_mounting_holes
       outer_top:
@@ -377,6 +361,78 @@ outlines:
       index_bottom:
         radius: 1
       thumb_outer_bottom:
+        radius: 1
+    1p_inner_mounting_holes:
+      pinky_top:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, 9.5]
+        radius: 2.25
+        mirror: true
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      ring_top:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      ring_bottom:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_top:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      thumbs:
+        type: circle
+        anchor:
+          ref: t_lower_home_lower
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+    1p_inner_screw_holes:
+      $extends: outlines.exports.1p_inner_mounting_holes
+      pinky_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      ring_top:
+        radius: 1
+      ring_bottom:
+        radius: 1
+      index_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      thumbs:
         radius: 1
     controller_plate_cutout:
       main:
@@ -429,7 +485,7 @@ outlines:
         type: outline
         name: 1p_screw_holes
         operation: subtract
-    jackalope_1p_plate_3d:
+    jackalope_1p_minimal_plate:
       main:
         type: keys
         side: both
@@ -440,23 +496,27 @@ outlines:
         operation: add
       cut_to_size:
         type: outline 
-        name: jackalope_1p_case_plate
+        name: jackalope_1p_pcb_spacer
         operation: intersect
+      controller_cutout:
+        type: outline
+        name: controller_plate_cutout
+        operation: subtract
       switches:
         type: outline
         name: jackalope_1p_switches
         operation: subtract
       screw_holes:
         type: outline
-        name: 1p_screw_holes_3d
+        name: 1p_inner_screw_holes
         operation: subtract
-    jackalope_1p_bottom_3d:
+    jackalope_1p_minimal_bottom:
       base:
         type: outline
-        name: jackalope_1p_case_plate
+        name: jackalope_1p_pcb_spacer
       screw_holes:
         type: outline
-        name: 1p_screw_holes_3d
+        name: 1p_inner_screw_holes
         operation: subtract
     jackalope_1p_middle:
       outer:
@@ -483,6 +543,10 @@ outlines:
       controller_cutout:
         type: outline
         name: controller_cutout
+        operation: subtract
+      mounting_holes:
+        type: outline
+        name: 1p_inner_mounting_holes
         operation: subtract
 
 pcbs:
