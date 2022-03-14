@@ -4,7 +4,7 @@
 
   (page A3)
   (title_block
-    (title minimal_case_bottom)
+    (title split_minimal_case_bottom)
     (rev v1.0.0)
     (company Unknown)
   )
@@ -3088,8 +3088,8 @@
 (gr_arc (start 45.4249606 -67.83071989999999) (end 45.4249606 -69.33071989999999) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 42.4249606 -65.83071989999999) (end 42.4249606 -64.33071989999999) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 24.4249606 -53.834938307082794) (end 24.529595299999997 -52.3385922070828) (angle -85.9999986981129) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 7.303921099999998 -24.5693455) (end 8.303921099999998 -24.5693455) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 8.2805118 -10.6034488) (end 9.2805118 -10.6034488) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 6.990016999999998 -29.0583837) (end 7.990016999999998 -29.0583837) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 8.315389999999999 -10.1046668) (end 9.315389999999999 -10.1046668) (layer Edge.Cuts) (width 0.15))
 (gr_circle (center 47.9249606 -42.3307199) (end 48.9249606 -42.3307199) (layer Edge.Cuts) (width 0.15))
 (gr_circle (center 47.9249606 -23.3307199) (end 48.9249606 -23.3307199) (layer Edge.Cuts) (width 0.15))
 (gr_circle (center 85.9249607 -41.33072) (end 86.9249607 -41.33072) (layer Edge.Cuts) (width 0.15))
