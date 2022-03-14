@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 82)
+    (drawings 83)
     (tracks 966)
     (zones 0)
     (modules 153)
@@ -90,9 +90,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "jacalope_unibody_gerbers/"))
   )
 
   (net 0 "")
@@ -2866,7 +2866,7 @@
     (at 164.5 -28)
     (descr "tactile switch SPST right angle, PTS645VL39-2 LFS")
     (tags "tactile switch SPST angled PTS645VL39-2 LFS C&K Button")
-    (fp_text reference REF** (at 2.5 1.68) (layer F.SilkS)
+    (fp_text reference RESET (at 2.5 1.68) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value SW_PUSH (at 2.5 5.38988) (layer F.Fab)
@@ -7350,6 +7350,9 @@
       (net 3 P9))
   )
 
+  (gr_text "Jackalope Keyboard v2.0 by @HBBisenieks" (at 49.5 19 -15) (layer B.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (gr_line (start -12.713874 10.197177) (end 23.245676 16.537816) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start -13.930613 8.459493) (end -3.598546 -50.136568) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_arc (start -12.453401 8.719965) (end -13.930613 8.459493) (angle -90) (layer Edge.Cuts) (width 0.15))
