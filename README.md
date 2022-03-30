@@ -11,6 +11,11 @@ The Jackalope layout is focussed on maximizing comfort for the thumbs and reduci
 - [ ] BOM and build guide
 - [ ] Default firmware
 
+## Firmware
+The Jackalope can run either [QMK](https://github.com/HBBisenieks/qmk_firmware/tree/jackalope_boards/keyboards/jackalope) 
+with a pro-micro or KMK with a KB2040. Default keymap is still a work-in-progress pending 
+actual hardware testing.
+
 ## Images
 Renders of the left and right split PCBs:
 
