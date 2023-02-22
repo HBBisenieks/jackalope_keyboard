@@ -1,6 +1,8 @@
 # Jackalope Keyboard
 [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://forthebadge.com)
 
+`NOTE:` Current source was built against `ergogen@3.1.1` and will not work with the `4.0.0` release (or newer).
+
 A 50-key ergonomic ~(currently single-piece)~ single-piece or split column-staggered keyboard ~(with a split version planned for the future???)~ inspired by the Absolem, Kryia, and Iris.
 
 The Jackalope layout is focussed on maximizing comfort for the thumbs and reducing reach for the fingers.
