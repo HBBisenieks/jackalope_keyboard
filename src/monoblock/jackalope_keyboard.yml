@@ -31,11 +31,11 @@ points:
         ring:
           key:
             column_net: P2
+            splay: -4
+            origin: [-12, -19]
+            stagger: 12
             mirror:
               column_net: P19
-          rotate: -4
-          origin: [-12, -19]
-          stagger: 12
           rows:
             bottom:
               bind: [5, 5, 12, 5]
@@ -48,7 +48,7 @@ points:
             column_net: P3
             mirror:
               column_net: P18
-          stagger: 5
+            stagger: 5
           rows:
             bottom:
               bind: [5, 5, 17, 5]
@@ -61,7 +61,7 @@ points:
             column_net: P4
             mirror:
               column_net: P15
-          stagger: -6
+            stagger: -6
           rows:
             bottom:
               bind: [5, 5, 11, 5]
@@ -74,7 +74,7 @@ points:
             column_net: P5
             mirror:
               column_net: P14
-          stagger: -2
+            stagger: -2
           rows:
             bottom:
               bind: [15, 40, 15, 5]
@@ -83,15 +83,14 @@ points:
             top:
               bind: [2, 40, 5, 5]
         macro:
-          row_overrides:
-            home:
-            top:
           key:
             column_net: P6
             mirror:
               column_net: P16
-          stagger: 15
+            stagger: -4
           rows:
+            bottom:
+              skip: true
             home:
               bind: [5, 0, 15, 5]
             top:
@@ -130,23 +129,23 @@ points:
             column_net: P3
             mirror:
               column_net: P18
+            stagger: 9
+            spread: 27.25
+            splay: -18
           rows:
             upper:
               bind: [0, 3, 0, 15]
-          stagger: 9
-          spread: 27.25
-          rotate: -18
         outer:
           key:
             column_net: P5
             mirror:
               column_net: P14
+            stagger: -1
+            spread: 23.25
+            splay: -8
           rows:
             upper:
               bind: [3, 1, 0, 3]
-          stagger: -1
-          spread: 23.25
-          rotate: -8
       rows:
         upper:
           bind: 10
@@ -171,12 +170,12 @@ points:
             column_net: P6
             mirror:
               column_net: P16
+            spread: 19.25
+            splay: -8
+            origin: [-9.5, -9]
           rows:
             lower:
               bind: [5, 1, 0, 3]
-          spread: 19.25
-          rotate: -8
-          origin: [-9.5, -9]
       rows:
         lower:
           bind: [5, 0, 0, 0]
