@@ -1,0 +1,582 @@
+points:
+  zones:
+    matrix:
+      anchor:
+        rotate: 5
+      columns:
+        outer:
+          key:
+            column_net: P1
+            mirror:
+              column_net: P1
+          rows:
+            bottom:
+              bind: [5, 5, 0, 0]
+            home:
+              bind: [5, 5, 5, 0]
+            top:
+              bind: [0, 5, 5, 0]
+        pinky:
+          key:
+            column_net: P0
+            mirror:
+              column_net: P0
+          rows:
+            bottom:
+              bind: [5, 0, 0, 5]
+            home:
+              bind: [5, 5, 5, 5]
+            top:
+              bind: [0, 15, 5, 5]
+        ring:
+          key:
+            column_net: P4
+            mirror:
+              column_net: P4
+          rotate: -4
+          origin: [-12, -19]
+          stagger: 12
+          rows:
+            bottom:
+              bind: [5, 5, 12, 5]
+            home:
+              bind: [5, 5, 5, 5]
+            top:
+              bind: [0, 5, 5, 0]
+        middle:
+          key:
+            column_net: P5
+            mirror:
+              column_net: P5
+          stagger: 5
+          rows:
+            bottom:
+              bind: [5, 5, 17, 5]
+            home:
+              bind: [5, 5, 5, 5]
+            top:
+              bind: [0, 0, 5, 1]
+        index:
+          key:
+            column_net: P6
+            mirror:
+              column_net: P6
+          stagger: -6
+          rows:
+            bottom:
+              bind: [5, 5, 11, 5]
+            home:
+              bind: [5, 5, 5, 5]
+            top:
+              bind: [0, 5, 5, 5]
+        inner:
+          key:
+            column_net: P7
+            mirror:
+              column_net: P7
+          stagger: -2
+          rows:
+            bottom:
+              bind: [15, 40, 15, 5]
+            home:
+              bind: [5, 40, 5, 5]
+            top:
+              bind: [2, 40, 5, 5]
+        macro:
+          row_overrides:
+            home:
+            top:
+          key:
+            column_net: P8
+            mirror:
+              column_net: P8  
+          stagger: 15
+          rows:
+            home:
+              bind: [5, 0, 15, 5]
+            top:
+              bind: [0, 0, 5, 5]
+      rows:
+        bottom:
+          bind: 10
+          row_net: P16
+          mirror:
+            row_net: P18
+        home:
+          bind: 10
+          row_net: P10
+          mirror:
+            row_net: P19
+        top:
+          bind: 5
+          row_net: P9
+          mirror:
+            row_net: P20
+    t_upper:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-5, -25]
+      columns:
+        inner:
+          key:
+            column_net: P1
+            mirror:
+              column_net: P1
+          rows:
+            upper:
+              bind: [15, 15, 0, 0]
+        home:
+          key:
+            column_net: P0
+            mirror:
+              column_net: P0
+          rows:
+            upper:
+              bind: [0, 3, 0, 15]
+          stagger: 9
+          spread: 27.25
+          rotate: -18
+        outer:
+          key:
+            column_net: P4
+            mirror:
+              column_net: P4
+          rows:
+            upper:
+              bind: [3, 1, 0, 3]
+          stagger: -1
+          spread: 23.25
+          rotate: -8
+      rows:
+        upper:
+          bind: 10
+          row_net: P14
+          mirror:
+            row_net: P15
+    t_lower:
+      anchor:
+        ref: t_upper_home_upper
+        shift: [0, -19]
+      columns:
+        home:
+          key:
+            column_net: P5
+          rows:
+            lower:
+              bind: [5, 5, 0, 15]
+        outer:
+          key:
+            column_net: P6
+          rows:
+            lower:
+              bind: [5, 1, 0, 3]
+          spread: 19.25
+          rotate: -8
+          origin: [-9.5, -9]
+      rows:
+        lower:
+          bind: [5, 0, 0, 0]
+          row_net: P14
+          mirror:
+            row_net: P15
+  key:
+    footprints:
+      mx:
+        type: mx
+        nets:
+          from: =colrow
+          to: =column_net
+      choc:
+        type: choc
+        nets:
+          from: =colrow
+          to: =column_net
+      diode:
+        type: diode
+        nets:
+          from: =colrow
+          to: =row_net
+        anchor:
+          shift: [0, -9.5]
+  rotate: -15
+  mirror:
+    ref: matrix_outer_home
+    distance: 295
+
+outlines:
+  glue:
+    jackalope_1p_outline:
+      top:
+        left:
+          ref: matrix_ring_top
+          shift: [, 0.5 sy]
+        right:
+          ref: mirror_matrix_ring_top
+          shift: [, 0.5 sy]
+      bottom:
+        left:
+          ref: t_lower_outer_lower
+          shift: [.5 sx, 0]
+          rotate: 90
+        right:
+          ref: mirror_t_lower_outer_lower
+          shift: [0.5 sx, 0]
+          rotate: 90
+      waypoints:
+        - percent: 50
+          width: 50
+        - percent: 90
+          width: 25
+  exports:
+    jackalope_1p_pcb_base:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_outline
+        size: 24.5
+        corner: 1.5
+    jackalope_1p_pcb_spacer:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_outline
+        size: 25
+        corner: 1.5
+    jackalope_1p_case_base:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_outline
+        size: 35
+        corner: 1.5
+    filler:
+      - type: polygon
+        points:
+          - ref: matrix_outer_top
+            shift: [-19, 20]
+          - ref: matrix_pinky_top
+            shift: [5, 32.1]
+          - ref: matrix_ring_top
+            shift: [0, 25]
+          - ref: matrix_ring_top
+        mirror: true
+      - type: polygon
+        points:
+          - ref: matrix_pinky_bottom
+            shift: [-9.5, -20]
+          - ref: t_upper_inner_upper
+            shift: [-19, -20]
+          - ref: t_upper_inner_upper
+            shift: [0, -22.4]
+          - ref: t_upper_inner_upper
+            shift: 1
+          - ref: matrix_pinky_bottom
+            shift: [20, 0]
+        mirror: true
+    jackalope_1p_case_plate:
+      main:
+        type: outline
+        name: jackalope_1p_case_base
+        fillet: 1.5
+
+    jackalope_1p_switches:
+      main:
+        type: keys
+        side: both
+        glue: jackalope_1p_case_plate 
+        size: 14
+        bound: false
+    1p_mounting_holes:
+      outer_top:
+        type: circle
+        anchor:
+          ref: matrix_outer_top
+          shift: [-14.5, 14.5]
+        radius: 2.25
+        mirror: true 
+      outer_bottom:
+        type: circle
+        anchor:
+          ref: matrix_outer_bottom
+          shift: [-14.5, -14.5]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+      ring_top:
+        type: circle
+        anchor:
+          ref: matrix_ring_top
+          shift: [-14.5, 14.5]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_bottom
+          shift: [14.5, -15.5]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+      inner_top:
+        type: circle
+        anchor:
+          ref: matrix_inner_top
+          shift: [9.5, 18]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: t_upper_inner_upper
+          shift: [-14.5, -14.5]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+      thumb_outer_bottom:
+        type: circle
+        anchor:
+          ref: t_lower_outer_lower
+          shift: [15.5, -14.5]
+        radius: 2.25
+        mirror: true 
+        operation: stack
+    1p_screw_holes:
+      $extends: outlines.exports.1p_mounting_holes
+      outer_top:
+        radius: 1
+      outer_bottom:
+        radius: 1
+      ring_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      inner_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      thumb_outer_bottom:
+        radius: 1
+    1p_inner_mounting_holes:
+      pinky_top:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, 9.5]
+        radius: 2.25
+        mirror: true
+      pinky_bottom:
+        type: circle
+        anchor:
+          ref: matrix_pinky_home
+          shift: [-10, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      ring_top:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      ring_bottom:
+        type: circle
+        anchor:
+          ref: matrix_ring_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_top:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      index_bottom:
+        type: circle
+        anchor:
+          ref: matrix_index_home
+          shift: [9.5, -9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+      thumbs:
+        type: circle
+        anchor:
+          ref: t_lower_home_lower
+          shift: [9.5, 9.5]
+        radius: 2.25
+        mirror: true
+        operation: stack
+    1p_inner_screw_holes:
+      $extends: outlines.exports.1p_inner_mounting_holes
+      pinky_top:
+        radius: 1
+      pinky_bottom:
+        radius: 1
+      ring_top:
+        radius: 1
+      ring_bottom:
+        radius: 1
+      index_top:
+        radius: 1
+      index_bottom:
+        radius: 1
+      thumbs:
+        radius: 1
+    controller_plate_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-12.5, -30]
+        size: [25, 50]
+    controller_cutout:
+      main:
+        type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [-10, 4]
+        size: [20, 20]
+    jackalope_1p_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_1p_case_plate
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: jackalope_1p_switches
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
+        operation: subtract
+    jackalope_1p_bottom:
+      base:
+        type: outline
+        name: jackalope_1p_case_plate
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+      inner_screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
+        operation: subtract
+    jackalope_1p_minimal_plate:
+      main:
+        type: keys
+        side: both
+        size: 45
+      filler:
+        type: outline
+        name: filler
+        operation: add
+      cut_to_size:
+        type: outline 
+        name: jackalope_1p_pcb_spacer
+        operation: intersect
+      controller_cutout:
+        type: outline
+        name: controller_plate_cutout
+        operation: subtract
+      switches:
+        type: outline
+        name: jackalope_1p_switches
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
+        operation: subtract
+    jackalope_1p_minimal_bottom:
+      base:
+        type: outline
+        name: jackalope_1p_pcb_spacer
+      screw_holes:
+        type: outline
+        name: 1p_inner_screw_holes
+        operation: subtract
+    jackalope_1p_middle:
+      outer:
+        type: outline
+        name: jackalope_1p_case_plate
+      minus_inner:
+        type: outline
+        name: jackalope_1p_pcb_spacer
+        fillet: 1.5
+        operation: subtract
+      screw_holes:
+        type: outline
+        name: 1p_screw_holes
+        operation: subtract
+      controller_cutout:
+        type: outline
+        name: controller_cutout
+        operation: subtract
+    1p_pcb_outline:
+      main:
+        type: outline
+        name: jackalope_1p_pcb_base
+        fillet: 1.5
+      controller_cutout:
+        type: outline
+        name: controller_cutout
+        operation: subtract
+      mounting_holes:
+        type: outline
+        name: 1p_inner_mounting_holes
+        operation: subtract
+
+pcbs:
+  jackalope_unibody:
+    outlines:
+      edge:
+        outline: 1p_pcb_outline
+        layer: Edge.Cuts
+    footprints:
+      mcu:
+        type: promicro
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [0, -14]
+          rotate: 270
+        params:
+          orientation: up
+      screen:
+        type: oled
+        anchor:
+          ref:
+            - matrix_inner_top
+            - mirror_matrix_inner_top
+          shift: [0, -18]
+        params:
+          SDA: P2
+          SCL: P3 
