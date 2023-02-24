@@ -213,6 +213,12 @@ outlines:
         glue: jackalope_split_outline
         size: 25
         corner: 1.5
+    jackalope_split_minimal_outline:
+      main:
+        type: keys
+        side: left
+        glue: jackalope_split_outline
+        size: 27
     jackalope_split_case_base:
       main:
         type: keys
@@ -498,6 +504,19 @@ outlines:
         type: outline
         name: split_outer_screw_holes
         operation: subtract
+    jackalope_split_middle_minimal:
+      outer:
+        type: outline
+        name: jackalope_split_minimal_outline
+      minus_inner:
+        type: outline
+        name: jackalope_split_pcb_space
+        fillet: 1.5
+        operation: subtract
+      minus_controller:
+        type: outline
+        name: split_controller_plate_cutout
+        operation: subtract
     split_pcb_outline:
       main:
         type: outline
@@ -572,10 +591,10 @@ cases:
     - name: jackalope_split_middle
       extrude: 12
     - -split_outer_screw_holes
-  wtf:
+  split_case_tray:
     - name: jackalope_minimal_split_bottom
       extrude: 2
-    - name: jackalope_split_middle
+    - name: jackalope_split_middle_minimal
       extrude: 12
   split_case_minimal_bottom_3d:
     - name: jackalope_minimal_split_bottom
