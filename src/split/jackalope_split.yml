@@ -568,6 +568,15 @@ cases:
     - name: jackalope_split_middle
       extrude: 12
     - -split_outer_screw_holes
+  split_case_middle:
+    - name: jackalope_split_middle
+      extrude: 12
+    - -split_outer_screw_holes
+  wtf:
+    - name: jackalope_minimal_split_bottom
+      extrude: 2
+    - name: jackalope_split_middle
+      extrude: 12
   split_case_minimal_bottom_3d:
     - name: jackalope_minimal_split_bottom
       extrude: 2
