@@ -576,7 +576,8 @@ pcbs:
           ref:
             - matrix_inner_top
             - mirror_matrix_inner_top
-          shift: [0, -18]
-        params:
+          shift: [-6, -33]
+          rotate: 90
+        nets:
           SDA: P2
           SCL: P3 
